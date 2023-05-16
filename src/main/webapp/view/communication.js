@@ -1,11 +1,10 @@
-const webSocket = new WebSocket("ws://localhost:8090/omok/websocket4"); //나중에 바꾸기 // 192.168.0.127
+const webSocket = new WebSocket("ws://localhost:8090/omok/websocket/"+ roomId);
 
-const user_id=document.getElementById("user");
+const user_id = document.getElementById("user");
 const messageTextArea = document.getElementById("messageTextArea");
 
 webSocket.onopen = function(message) {
-	
-	status.valueOf
+	console.log(status.valueOf);
     messageTextArea.value += "Server connect...\n";
   };
   
@@ -15,7 +14,6 @@ webSocket.onclose = function(message) {
 };
    
 webSocket.onerror = function(message) {
-      
    	messageTextArea.value += "error...\n";
 };
    
@@ -38,6 +36,7 @@ webSocket.onmessage = function(message) {
 */
 
 function sendMessage(message) {
+	console.log("sendMessage : " + message);
     webSocket.send(message);
   }
   /*
@@ -54,11 +53,15 @@ $('#btn_ready').addEventListener(
 );
 */
 
-function btn_ready(stone){
-	console.log(stone)
-		let message = {};
-		message.id = user_id.value;
-		message.type = 1;
-		message.stone = stone;
-		sendMessage(JSON.stringify(message));
+function btn_ready(stone) {
+	console.log("stone : " + stone);
+	let message = {};
+	message.id = user_id.value;
+	message.type = 1;
+	message.stone = stone;
+	sendMessage(JSON.stringify(message));
+}
+
+function disconnect() {
+	
 }

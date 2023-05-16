@@ -27,11 +27,12 @@
 	    }
   }
   let msg = new MSG('kim','24','seoul');
+  var roomId = new URL(window.location.href).searchParams.get("roomId");
   
     // 「WebSocketEx」는 프로젝트 명
     // 「broadsocket」는 호스트 명
     // WebSocket 오브젝트 생성 (자동으로 접속 시작한다. - onopen 함수 호출)
-    var webSocket = new WebSocket("ws://localhost:8090/omok/websocket2/2"); //나중에 바꾸기 // 192.168.0.127
+    var webSocket = new WebSocket("ws://localhost:8090/omok/websocket/"+ roomId ); //나중에 바꾸기 // 192.168.0.127
     // 콘솔 텍스트 에리어 오브젝트 
     var messageTextArea = document.getElementById("messageTextArea");
     // WebSocket 서버와 접속이 되면 호출되는 함수

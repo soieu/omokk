@@ -39,7 +39,7 @@ function drawStone(color, posX, posY, radius) {
 }
 
 //보드 그리는 함수
-function updateBoard() {
+function updateBoard(board) {     // 현재 보드 상태를 서버로 부터 받아 온 후 돌을 그리는 함수 구현
   // 배경
   ctx.fillStyle = "#000000";
   ctx.fillRect(0, 0, width, height);
@@ -158,6 +158,8 @@ function isClicked(xPos, yPos) {
     boardArray[resultPos.x][resultPos.y] = turn;
     //checkOmok(turn, resultPos.x, resultPos.y);
     turn = 3 - turn; //차례 변경
+    
+    // 서버에 메시지 전송 구현 해야함 ///////////////////////////////////
   }
   updateBoard();
 }

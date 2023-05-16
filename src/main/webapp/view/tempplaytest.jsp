@@ -35,7 +35,7 @@
     <%
     String roomId = "3";
    %>
-    var webSocket = new WebSocket("ws://192.168.0.127:8090/" + "testserver/websocket2/" + <%= roomId %>); //나중에 바꾸기 // 192.168.0.127
+    var webSocket = new WebSocket("ws://192.168.0.127:8090/" + "testserver/websocket/" + <%= roomId %>); //나중에 바꾸기 // 192.168.0.127
     // 콘솔 텍스트 에리어 오브젝트 
     var messageTextArea = document.getElementById("messageTextArea");
     // WebSocket 서버와 접속이 되면 호출되는 함수

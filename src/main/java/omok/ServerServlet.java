@@ -1,6 +1,7 @@
 package omok;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -8,11 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 
 @WebServlet("/TestServerServlet")
 public class ServerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
+	//private List<Session> ss = Websocket.sessionUsers;  ////////////////////
+	
 	Websocket wsocket = null;
     public ServerServlet() {
         super();
@@ -22,6 +26,7 @@ public class ServerServlet extends HttpServlet {
 		Thread t = new Thread();
 		// Thread 생성 후 소켓 연결 시작
 		t.run();
+		//System.out.println(ss);             ////////////////////////////
 	}
 
 	public void destroy() {
